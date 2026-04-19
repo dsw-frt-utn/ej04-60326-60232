@@ -1,5 +1,5 @@
 # Desarrollo de Software
-## Ejericio 4
+## Ejercicio 4
 ### Integrantes:
 60326 Valdecantos, Joaquin joacovaldecantos@gmail.com
 
