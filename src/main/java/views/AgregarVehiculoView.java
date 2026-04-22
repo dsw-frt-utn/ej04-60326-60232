@@ -20,13 +20,13 @@ public class AgregarVehiculoView extends javax.swing.JFrame {
         txtKwh.setEditable(false);
         
         cbSucursal.removeAllItems();
-        for (domain.Sucursal s : data.Persistencia.getSucursales()) {
+        for (domain.Sucursal s : Controlador.getSucursales()) {
             cbSucursal.addItem(s.getCodigo());
         }
         cbSucursal.setSelectedIndex(-1);
         
         cbMarca.removeAllItems();
-        for (domain.Marca m : data.Persistencia.getMarcas()) {
+        for (domain.Marca m : Controlador.getMarcas()) {
             cbMarca.addItem(m.getNombre());
         }
         cbMarca.setSelectedIndex(-1);
@@ -290,7 +290,7 @@ public class AgregarVehiculoView extends javax.swing.JFrame {
             
             String codSucursal = cbSucursal.getSelectedItem().toString();
             domain.Sucursal sucursalElegida = null;
-            for (domain.Sucursal s : data.Persistencia.getSucursales()) {
+            for (domain.Sucursal s : Controlador.getSucursales()) {
                 if (s.getCodigo().equals(codSucursal)) {
                     sucursalElegida = s;
                     break;
@@ -299,7 +299,7 @@ public class AgregarVehiculoView extends javax.swing.JFrame {
             
             String nombreMarca = cbMarca.getSelectedItem().toString();
             domain.Marca marcaElegida = null;
-            for (domain.Marca m : data.Persistencia.getMarcas()) {
+            for (domain.Marca m : Controlador.getMarcas()) {
                 if (m.getNombre().equals(nombreMarca)) {
                     marcaElegida = m;
                     break;
@@ -313,7 +313,7 @@ public class AgregarVehiculoView extends javax.swing.JFrame {
                 domain.VehiculoElectrico ve = new domain.VehiculoElectrico(
                     patente, marcaElegida, modelo, anio, carga, sucursalElegida, kwh
                 );
-                data.Persistencia.agregarVehiculo(ve);
+                 Controlador.agregarVehiculo(ve);
 
             } else {
                 double kmLt = Double.parseDouble(txtKmPorLitro.getText().trim());
@@ -321,7 +321,7 @@ public class AgregarVehiculoView extends javax.swing.JFrame {
                 domain.VehiculoCombustible vc = new domain.VehiculoCombustible(
                     patente, marcaElegida, modelo, anio, carga, sucursalElegida, kmLt, ltsEx
                 );
-                data.Persistencia.agregarVehiculo(vc);
+                Controlador.agregarVehiculo(vc);
             }
 
             javax.swing.JOptionPane.showMessageDialog(this, "Vehículo agregado con éxito", "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
