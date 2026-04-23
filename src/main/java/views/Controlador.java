@@ -31,4 +31,16 @@ public class Controlador {
         }
         return new double[] {consumoElectricos, consumoCombustible};
     }
+    
+    public static java.util.ArrayList<domain.Sucursal> getSucursales() {
+        return data.Persistencia.getSucursales();
+    }
+
+    public static java.util.ArrayList<domain.Marca> getMarcas() {
+        return data.Persistencia.getMarcas();
+    }
+
+    public static void agregarVehiculo(domain.Vehiculo vehiculo) {
+        data.Persistencia.agregarVehiculo(vehiculo);
+    }
 }
